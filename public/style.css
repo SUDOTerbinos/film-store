@@ -1,0 +1,320 @@
+/* public/style.css */
+/* Basic Reset & Defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #141414; /* Dark background */
+    color: #e0e0e0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Common streaming site font */
+    line-height: 1.5;
+}
+
+a {
+    color: #5dade2;
+    text-decoration: none;
+}
+a:hover {
+    color: #85c1e9;
+}
+
+/* Header */
+header {
+    background-color: #1a1a1a;
+    padding: 0.5rem 0;
+    position: sticky; /* Keep header visible */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.header-container {
+    max-width: 95%; /* Use percentage for wider feel */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem; /* Padding inside container */
+}
+
+.logo a {
+    color: #e50914; /* Netflix-like red */
+    font-weight: bold;
+    font-size: 1.8rem;
+    text-transform: uppercase; /* Matches RidoMovies logo */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; /* Space between nav items */
+}
+nav a {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+nav a:hover {
+    color: #bbbbbb;
+}
+
+.search-area {
+    display: flex;
+    align-items: center;
+}
+.search-area input {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px 0 0 4px; /* Style for button adjacency */
+    min-width: 200px;
+}
+.search-area button {
+    padding: 0.4rem 1rem;
+    border: 1px solid #555;
+    border-left: none;
+    background-color: #444;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.2s ease;
+}
+.search-area button:hover { background-color: #555; }
+
+
+.auth-buttons button {
+    margin-left: 0.8rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.auth-buttons .btn-register {
+    background-color: transparent;
+    border: 1px solid #aaa;
+    color: #aaa;
+}
+.auth-buttons .btn-register:hover { background-color: rgba(255,255,255,0.1); color: #fff; border-color: #fff;}
+
+.auth-buttons .btn-signin {
+    background-color: #e50914; /* Red button */
+    color: white;
+}
+.auth-buttons .btn-signin:hover { background-color: #f61c25; }
+
+/* Main Content Area */
+main {
+    padding: 1.5rem;
+    max-width: 95%;
+    margin: 1rem auto;
+}
+
+section {
+    margin-bottom: 2.5rem; /* More space between sections */
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333; /* Subtle separator */
+    padding-bottom: 0.5rem;
+}
+h2 .note { font-size: 0.9rem; color: #888; font-weight: normal; }
+
+hr { display: none; } /* Hide HR, use section margin instead */
+
+/* Movie Grid */
+.movie-grid {
+    display: grid;
+    /* Adjust minmax for desired item size & count */
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem; /* Space between cards */
+}
+
+/* Movie Card Styling */
+.movie-card {
+    background-color: #1a1a1a; /* Slightly lighter than body */
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative; /* For badges */
+    color: #aaa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+    cursor: pointer;
+}
+.movie-card:hover {
+    transform: scale(1.04); /* Slightly larger scale effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 10; /* Bring card to front on hover */
+}
+
+.movie-card .poster-container {
+    position: relative;
+}
+
+.movie-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3; /* Maintain poster aspect ratio */
+    background-color: #333; /* Placeholder bg */
+}
+
+.movie-card .info-container {
+    padding: 0.8rem;
+}
+
+.movie-card h3 {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    /* Ellipsis for long titles */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card .meta-info {
+    font-size: 0.8rem;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem; /* Space before buttons */
+}
+
+/* Badges (Example Styling) */
+.badge {
+    position: absolute;
+    bottom: 5px; /* Position from bottom of poster */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3px 7px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    border-radius: 3px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.badge-hd { left: 5px; background-color: rgba(30, 100, 200, 0.8); } /* Blueish for HD */
+.badge-type { right: 5px; }
+/* Avoid CAM badge */
+
+/* Card Buttons */
+.movie-card button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 0; /* Full width padding */
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    width: 100%; /* Make buttons take full width */
+    transition: background-color 0.2s ease;
+    text-align: center;
+    font-weight: 500;
+}
+.movie-card button:hover { background-color: #555; }
+
+.movie-card .favorite-btn { background-color: #e50914; } /* Red for favorite */
+.movie-card .favorite-btn:hover { background-color: #f61c25; }
+
+.movie-card .remove-fav-btn { background-color: #e74c3c; } /* Different red for remove */
+.movie-card .remove-fav-btn:hover { background-color: #c0392b; }
+
+/* Add to public/style.css */
+.auth-section { display: flex; align-items: center; }
+.auth-section .auth-btn { /* Style links like buttons */
+    margin-left: 0.8rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none; /* Remove underline from links styled as buttons */
+    display: inline-block; /* Ensure proper padding */
+}
+.auth-section .btn-register { background-color: transparent; border: 1px solid #aaa; color: #aaa; }
+.auth-section .btn-register:hover { background-color: rgba(255,255,255,0.1); color: #fff; border-color: #fff; }
+.auth-section .btn-signin { background-color: #e50914; color: white; }
+.auth-section .btn-signin:hover { background-color: #f61c25; }
+.auth-section .btn-logout { background-color: #555; color: white; }
+.auth-section .btn-logout:hover { background-color: #777; }
+
+#usernameDisplay { font-weight: bold; }
+
+/* Details Section */
+#detailsSection {
+    background-color: #1a1a1a;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative; /* For close button */
+}
+#closeDetailsButton {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+    line-height: 30px; /* Center the X */
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+#closeDetailsButton:hover { background-color: #777; }
+
+#detailsContainer img.details-poster {
+    max-width: 250px; /* Larger details poster */
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    border-radius: 5px;
+}
+#detailsContainer h2 { border: none; padding-bottom: 0; margin-bottom: 0.5rem; }
+#detailsContainer p { margin-bottom: 0.8rem; line-height: 1.6; }
+#detailsContainer strong { color: #ccc; }
+#detailsContainer ul { list-style: none; padding-left: 0; }
+#detailsContainer li { margin-bottom: 0.3rem; }
+#detailsContainer h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; color: #eee; }
+#detailsContainer iframe { max-width: 100%; margin-top: 1rem; } /* Responsive trailer */
+
+#detailsContainer::after { /* Clear float */
+    content: ""; display: table; clear: both;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    color: #888;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+footer a { color: #aaa; }
+footer a:hover { color: #ccc; }
+
+/* Utility */
+.loading-msg,
+.error-message {
+    color: #aaa;
+    text-align: center;
+    grid-column: 1 / -1; /* Span full grid width */
+    padding: 2rem;
+}
+.error-message { color: #e74c3c; font-weight: bold; }

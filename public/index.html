@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RidoMovies Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="/">TERBMOVIES</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Discover</a></li>
+                    <li><a href="#">Movies</a></li>
+                    <li><a href="#">TV Series</a></li>
+                </ul>
+            </nav>
+             <div class="search-area">
+                <input type="text" id="searchInput" placeholder="Search movies...">
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="auth-section">
+                <!-- Populated by script.js -->
+                <div id="authLoading" style="color: #ccc;">Loading user...</div>
+                <div id="authLoggedOut" style="display: none;">
+                     <a href="register.html" class="btn-register auth-btn">Register</a>
+                     <a href="login.html" class="btn-signin auth-btn">Sign in</a>
+                </div>
+                <div id="authLoggedIn" style="display: none;">
+                     <span id="usernameDisplay" style="margin-right: 1rem; color: #fff;"></span>
+                     <button id="logoutButton" class="btn-logout auth-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="latestMoviesSection">
+            <h2>Latest Movies</h2>
+            <div id="latestMoviesContainer" class="movie-grid">
+                <p class="loading-msg">Loading latest movies...</p>
+            </div>
+        </section>
+
+        <!-- ***** NEW POPULAR MOVIES SECTION ***** -->
+        <section id="popularMoviesSection">
+            <h2>Popular Movies</h2>
+            <div id="popularMoviesContainer" class="movie-grid">
+                <p class="loading-msg">Loading popular movies...</p>
+            </div>
+        </section>
+        <!-- ***** END NEW SECTION ***** -->
+
+        <section id="favoritesSection">
+            <h2>My Favorites <span id="favSectionStatus">(Login required)</span></h2>
+            <div id="favoritesContainer" class="movie-grid">
+                <!-- Favorites loaded via JS or login prompt shown -->
+            </div>
+        </section>
+
+        <section id="resultsSection">
+            <h2>Search Results</h2>
+            <div id="resultsContainer" class="movie-grid">
+                <p>Enter a search term above and click Search.</p>
+            </div>
+        </section>
+
+        <!-- Details Section (Initially Hidden) -->
+        <section id="detailsSection" style="display: none;">
+             <button id="closeDetailsButton">×</button>
+            <div id="detailsContainer">
+                <!-- Detailed movie info loaded via JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Movie data powered by <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">TMDb</a>.</p>
+         <p>This is a non-functional demo for layout purposes. No real streaming available.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

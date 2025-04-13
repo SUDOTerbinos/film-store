@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RidoMovies Demo</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link the main stylesheet -->
+    <style>
+        /* Add some specific styles for auth forms */
+        .auth-container { max-width: 400px; margin: 4rem auto; padding: 2rem; background-color: #1a1a1a; border-radius: 8px; }
+        .auth-container h1 { text-align: center; margin-bottom: 1.5rem; color: #fff; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; color: #ccc; font-weight: 500; }
+        .form-group input { width: 100%; padding: 0.7rem; background-color: #333; border: 1px solid #555; color: #fff; border-radius: 4px; }
+        .auth-button { width: 100%; padding: 0.8rem; background-color: #e50914; color: #fff; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background-color 0.2s ease; margin-top: 1rem;}
+        .auth-button:hover { background-color: #f61c25; }
+        .auth-link { text-align: center; margin-top: 1rem; color: #aaa; }
+        .auth-link a { color: #5dade2; }
+        .message { padding: 0.8rem; margin-bottom: 1rem; border-radius: 4px; text-align: center; }
+        .message.error { background-color: rgba(231, 76, 60, 0.3); color: #e74c3c; border: 1px solid #e74c3c; }
+        .message.success { background-color: rgba(46, 204, 113, 0.3); color: #2ecc71; border: 1px solid #2ecc71;}
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Login</h1>
+        <div id="messageArea" class="message" style="display: none;"></div> <!-- For success/error messages -->
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+        <div class="auth-link">
+            Don't have an account? <a href="register.html">Register here</a>
+        </div>
+         <div class="auth-link" style="margin-top: 0.5rem;">
+             <a href="/">Back to Home</a>
+        </div>
+    </div>
+
+    <script src="auth.js"></script> <!-- We will create this JS file -->
+</body>
+</html>
